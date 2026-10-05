@@ -123,6 +123,7 @@ window._googlesitekit = window._googlesitekit || {}; window._googlesitekit.throt
 .wp-block-gallery.wp-block-gallery-1{--wp--style--unstable-gallery-gap:var( --wp--style--gallery-gap-default, var( --gallery-block--gutter-size, var( --wp--style--block-gap, 0.5em ) ) );}
 /*# sourceURL=core-block-supports-inline-css */
 </style>
+<link rel="preload" as="image" href="wp-content/uploads/2026/10/hero/hero_poster.webp" type="image/webp" fetchpriority="high">
 </head>
 <body itemtype='https://schema.org/WebPage' itemscope='itemscope' class="home wp-singular page-template-default page page-id-31 wp-embed-responsive wp-theme-astra ast-desktop ast-plain-container ast-no-sidebar astra-4.12.7 ast-single-post ast-inherit-site-logo-transparent ast-theme-transparent-header ast-hfb-header">
 <a
@@ -278,9 +279,32 @@ data-ast-blocks-layout="true" itemprop="text">
 <p class="has-text-align-center has-medium-font-size wp-block-paragraph">Positive Energy Building/Urban Technologies</p>
 </div>
 <div class="wp-block-uagb-advanced-heading uagb-block-210d1e85"><div class="uagb-heading-text">Dr. Min-Hwi Kim, Principal Researcher, Renewable Energy System Lab.<br>Korea Institute of Energy Research</div></div>
-<figure class="wp-block-gallery has-nested-images columns-default is-cropped wp-block-gallery-1 is-layout-flex wp-block-gallery-is-layout-flex">
-<figure class="wp-block-image size-large"><img fetchpriority="high" decoding="async" width="1024" height="1024" data-id="860" src="wp-content/uploads/2026/03/홈페이지-자료_5-1024x1024.webp" alt="" class="wp-image-860" srcset="wp-content/uploads/2026/03/홈페이지-자료_5-1024x1024.webp 1024w, wp-content/uploads/2026/03/홈페이지-자료_5-300x300.webp 300w, wp-content/uploads/2026/03/홈페이지-자료_5-150x150.webp 150w, wp-content/uploads/2026/03/홈페이지-자료_5-768x768.webp 768w, wp-content/uploads/2026/03/홈페이지-자료_5-1536x1536.webp 1536w, wp-content/uploads/2026/03/홈페이지-자료_5.webp 2048w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
-</figure>
+<!-- KIER PlusEnergy hero video (2026-10-05) -->
+<style>
+.kier-hero{position:relative;width:100%;max-width:1200px;margin:24px auto 0;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#0a1a2f url(wp-content/uploads/2026/10/hero/hero_poster.webp) center/cover no-repeat;box-shadow:0 12px 32px rgba(10,26,47,.18)}
+.kier-hero__video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+@media (max-width:544px){.kier-hero{border-radius:10px;margin-top:16px}}
+@media (prefers-reduced-motion:reduce){.kier-hero__video{display:none}}
+</style>
+<div class="kier-hero">
+<video class="kier-hero__video" muted loop playsinline preload="none" width="1280" height="720" poster="wp-content/uploads/2026/10/hero/hero_poster.webp" aria-label="KIER 플러스에너지 기술 소개 영상 (BIPVT 등)">
+<source data-src="wp-content/uploads/2026/10/hero/hero_loop_480.mp4" type="video/mp4" media="(max-width: 768px)">
+<source data-src="wp-content/uploads/2026/10/hero/hero_loop_720.webm" type="video/webm; codecs=av01.0.05M.08">
+<source data-src="wp-content/uploads/2026/10/hero/hero_loop_720.mp4" type="video/mp4">
+</video>
+</div>
+<script>
+(function(){
+  function start(){
+    var v=document.querySelector('.kier-hero__video'); if(!v) return;
+    if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var c=navigator.connection; if(c&&(c.saveData||/(^|-)2g|3g/.test(c.effectiveType||''))) return;
+    v.querySelectorAll('source[data-src]').forEach(function(s){s.src=s.getAttribute('data-src');});
+    v.load(); var p=v.play(); if(p&&p.catch) p.catch(function(){});
+  }
+  if(document.readyState==='complete') start(); else window.addEventListener('load',start);
+})();
+</script>
 </div></div>
 <div class="wp-block-uagb-container uagb-block-619ad332 alignfull uagb-is-root-container"><div class="uagb-container-inner-blocks-wrap">
 <div class="wp-block-uagb-container uagb-block-60cffcb5">
