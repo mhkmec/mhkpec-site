@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
+Disallow: /wp-includes/
+Disallow: /wp-admin/
+
 Sitemap: https://mhkpec.com/sitemap.xml
