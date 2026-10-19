@@ -342,7 +342,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .fsel,.fsearch{border:1px solid var(--line);font:inherit;font-size:13.5px;padding:7px 10px;background:#fff;color:var(--ink)}
 .fsearch{flex:1;min-width:200px}
 .fsep{width:1px;height:22px;background:var(--line);margin:0 4px}
-.fcount{font-family:var(--mono);font-size:12px;color:var(--mute);margin:16px 0 0}
+.fcount{font-family:var(--mono);font-size:12px;color:var(--mute);margin:16px 0 0;scroll-margin-top:110px}
 .ygrp{display:grid;grid-template-columns:110px 1fr;gap:24px;border-bottom:1px solid var(--line)}
 .ygrp>.yy{font-family:var(--en);font-stretch:80%;font-weight:600;font-size:30px;color:var(--navy);padding-top:20px;position:sticky;top:84px;align-self:start}
 .ygrp>.yy small{display:block;font-family:var(--mono);font-size:11px;color:var(--mute);font-weight:500;font-stretch:100%}
@@ -425,6 +425,15 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .pub .tg span.r2{color:var(--navy);border-color:var(--navy)}
 .fgrp{display:flex;flex-wrap:wrap;gap:8px;align-items:center;width:100%}
 .fgrp .fl{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--mute);min-width:56px}
+#pChart .c.pick{cursor:pointer;transition:opacity .25s}
+#pChart .c.pick:hover{opacity:.8}
+#pChart.sel .c{opacity:.28}
+#pChart.sel .c.on{opacity:1}
+#pChart.sel .c.on b{color:var(--navy);font-weight:700}
+#pChart .c:focus-visible{outline:2px solid var(--solar);outline-offset:2px}
+.yclr{display:inline-flex;align-items:center;gap:6px;margin-left:10px;padding:3px 10px;border:1px solid var(--navy);border-radius:999px;background:var(--navy);color:#fff;font:500 11.5px var(--mono);cursor:pointer;vertical-align:middle}
+.yclr:hover{background:var(--ink)}
+.chart-hint{font:400 10.5px var(--mono);color:var(--mute);margin-top:6px}
 .chart .c i.s2{background:var(--solar)!important}.chart .c i.s3{background:var(--thermal)!important}.chart .c i.s4{background:#5B7BE0!important}
 .chart .c .stk{display:flex;flex-direction:column-reverse;width:100%}
 .chart .c .stk i{transition:height .6s}
@@ -838,7 +847,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
         <div>
           <div class="metrics">
             <div class="metric"><div class="num" id="pNum">–</div><div class="lab" id="pLab"></div><div class="sub" id="pSub"></div></div>
-            <div class="metric"><div class="chart-cap mono"><span>Per year</span><span id="pRange"></span></div><div class="chart" id="pChart"></div><div class="chart-x" id="pChartX"></div><div class="legend" id="pLegend"></div></div>
+            <div class="metric"><div class="chart-cap mono"><span>Per year</span><span id="pRange"></span></div><div class="chart" id="pChart"></div><div class="chart-x" id="pChartX"></div><div class="legend" id="pLegend"></div><p class="chart-hint">막대를 누르면 해당 연도 논문만 표시됩니다</p></div>
             <div class="metric" id="pRole"></div>
             <div class="metric" id="pJour"></div>
           </div>
@@ -984,7 +993,7 @@ document.getElementById('cIntl').textContent=ALL.length;
 document.getElementById('cIconf').textContent=D.iconf.length;
 document.getElementById('cKci').textContent=D.kci.length;
 document.getElementById('cDconf').textContent=D.dconf.length;
-let cur='intl',fRole='all',fTag='all',fQ='',fSt='all';
+let cur='intl',fRole='all',fTag='all',fQ='',fSt='all',fYear=null;
 function filtersHTML(){
   const roles=['all','제1저자','교신저자','공동저자'];
   const roleH=roles.map(r=>`<button class="fchip${fRole===r?' on':''}" data-role="${r}">${r==='all'?'전체':r}</button>`).join('');
@@ -1023,8 +1032,16 @@ function render(){
     if(cur==='intl'&&fTag!=='all'&&!(p.tg||[]).includes(fTag))return false;
     if(cur==='intl'&&fSt!=='all'&&p.s!==fSt)return false;
     if(fRole!=='all'&&p.r!==fRole)return false;
+    if(fYear!==null&&S.year(p)!==fYear)return false;
     if(q&&!(p.t+' '+p.a+' '+(p.j||p.v||'')).toLowerCase().includes(q))return false;return true;});
-  document.getElementById('pCount').textContent=L.length+' / '+S.list.length+' items';
+  const pc=document.getElementById('pCount');pc.innerHTML=esc(L.length+' / '+S.list.length+' items')+(fYear!==null?`<button class="yclr" type="button" aria-label="연도 필터 해제">${fYear}년 ✕</button>`:'');
+  const yc=pc.querySelector('.yclr');if(yc)yc.onclick=()=>{fYear=null;render()};
+  const pch=document.getElementById('pChart');pch.classList.toggle('sel',fYear!==null);
+  pch.querySelectorAll('.c').forEach((c,k)=>{const y=mn+k;const n=parseInt(c.querySelector('b').textContent)||0;
+    if(!n)return;c.classList.add('pick');c.classList.toggle('on',y===fYear);c.tabIndex=0;c.setAttribute('role','button');
+    c.setAttribute('aria-pressed',y===fYear);c.title=`${y}: ${n}편 — 클릭하면 ${y}년 논문만 보기`;
+    const pick=()=>{fYear=fYear===y?null:y;render();if(fYear!==null)document.getElementById('pCount').scrollIntoView({behavior:'smooth',block:'start'})};
+    c.onclick=pick;c.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();pick()}};});
   const g={};L.forEach(p=>{const y=S.year(p);(g[y]=g[y]||[]).push(p)});
   document.getElementById('pList').innerHTML=Object.keys(g).sort((a,b)=>b-a).map(y=>`<div class="ygrp"><div class="yy">${y}<small>${g[y].length} items</small></div><div>${g[y].map(p=>cur==='intl'?intlRow(p,false):otherRow(p)).join('')}</div></div>`).join('')||'<p class="note">검색 결과가 없습니다.</p>';
   fl.querySelectorAll('[data-tag]').forEach(b=>b.onclick=()=>{fTag=b.dataset.tag;render()});
@@ -1032,7 +1049,7 @@ function render(){
   fl.querySelectorAll('[data-st]').forEach(b=>b.onclick=()=>{fSt=b.dataset.st;render()});
   const inp=fl.querySelector('.fsearch');inp.oninput=e=>{fQ=e.target.value;clearTimeout(inp._t);inp._t=setTimeout(()=>{render();const n=document.querySelector('#pFilters .fsearch');n.focus();n.setSelectionRange(fQ.length,fQ.length)},250)};
 }
-document.querySelectorAll('#pubTabs .tab').forEach(t=>t.onclick=()=>{cur=t.dataset.t;fRole='all';fTag='all';fQ='';fSt='all';
+document.querySelectorAll('#pubTabs .tab').forEach(t=>t.onclick=()=>{cur=t.dataset.t;fRole='all';fTag='all';fQ='';fSt='all';fYear=null;
   document.querySelectorAll('#pubTabs .tab').forEach(x=>x.classList.toggle('on',x===t));render()});
 render();
 
