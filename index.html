@@ -1015,7 +1015,7 @@ function render(){
   document.getElementById('pNum').textContent=S.list.length;
   document.getElementById('pLab').textContent=S.lab;
   const pub=S.list.filter(p=>!p.s||p.s==='published').length;
-  document.getElementById('pSub').innerHTML=cur==='intl'?`Published <b>${pub}</b> · Accepted <b>${ALL.filter(p=>p.s==='accepted').length}</b> · Under review <b>${ALL.filter(p=>p.s==='review').length}</b> · Ready <b>${ALL.filter(p=>p.s==='ready').length}</b><br>updated ${UPDATED}`:S.sub;
+  const subParts=[['published','Published',pub],['accepted','Accepted',ALL.filter(p=>p.s==='accepted').length],['review','Under review',ALL.filter(p=>p.s==='review').length],['ready','Ready',ALL.filter(p=>p.s==='ready').length]].filter(([k,l,n])=>n>0).map(([k,l,n])=>`${l} <b>${n}</b>`).join(' · ');document.getElementById('pSub').innerHTML=cur==='intl'?`${subParts}<br>updated ${UPDATED}`:S.sub;
   let stack=null;if(cur==='intl'){stack={};ALL.forEach(p=>{(stack[p.y]=stack[p.y]||{})[p.s]=(stack[p.y][p.s]||0)+1})}
   const [mn,mx]=chart(document.getElementById('pChart'),document.getElementById('pChartX'),count(S.list,S.year),null,stack);
   document.getElementById('pLegend').innerHTML=cur==='intl'?'<span><i style="background:var(--navy)"></i>Published</span><span><i style="background:#5B7BE0"></i>Accepted</span><span><i style="background:var(--solar)"></i>Under review</span><span><i style="background:var(--thermal)"></i>Ready</span>':'';
