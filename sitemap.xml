@@ -2,12 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://mhkpec.com/</loc>
-<<<<<<< HEAD
     <lastmod>2026-10-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-=======
-    <lastmod>2026-10-17</lastmod>
+  </url>
+  <url>
+    <loc>https://mhkpec.com/ontology/</loc>
+    <lastmod>2026-10-22</lastmod>
+  </url>
+  <url>
+    <loc>https://mhkpec.com/%ED%95%9C%EA%B5%AD%ED%83%9C%EC%96%91%EC%97%90%EB%84%88%EC%A7%80%ED%95%99%ED%9A%8C-%EC%B6%94%EA%B3%84%ED%95%99%EC%88%A0%EB%8C%80%ED%9A%8C-%ED%83%9C%EC%96%91%EC%97%B4%EC%9C%B5%ED%95%A9%EC%84%B8%EC%85%98-%EC%96%B8%EB%A1%A0%EB%B3%B4%EB%8F%84/</loc>
+    <lastmod>2026-10-26</lastmod>
+  </url>
+  <url>
+    <loc>https://mhkpec.com/2026%EB%85%84%EB%8F%84-%ED%95%9C%EA%B5%AD%ED%83%9C%EC%96%91%EC%97%90%EB%84%88%EC%A7%80%ED%95%99%ED%9A%8C-%EC%B6%94%EA%B3%84%ED%95%99%EC%88%A0%EB%B0%9C%ED%91%9C%EB%8C%80%ED%9A%8C-%EC%9A%B0%EC%88%98/</loc>
+    <lastmod>2026-10-19</lastmod>
   </url>
   <url>
     <loc>https://mhkpec.com/2026%EB%85%84%EB%8F%84-%EB%8C%80%ED%95%9C%EC%84%A4%EB%B9%84%EA%B3%B5%ED%95%99%ED%9A%8C-%ED%95%98%EA%B3%84%ED%95%99%EC%88%A0%EB%B0%9C%ED%91%9C%EB%8C%80%ED%9A%8C-%EC%9A%B0%EC%88%98%EB%85%BC%EB%AC%B8/</loc>
@@ -40,24 +47,5 @@
   <url>
     <loc>https://mhkpec.com/2024%EB%85%84-%EA%B1%B4%EC%B6%95%EC%B9%9C%ED%99%98%EA%B2%BD%EC%84%A4%EB%B9%84%EA%B8%B0%EC%88%A0%EA%B3%B5%EB%AA%A8%EC%A0%84-%EC%9E%A5%EB%A0%A4%EC%83%81-%EC%88%98%EC%83%81/</loc>
     <lastmod>2026-10-17</lastmod>
->>>>>>> 4183fa5 (Fix 'Page with redirect': link to final URLs, absolute canonicals, expand sitemap)
-  </url>
-  <url>
-    <loc>https://mhkpec.com/2026%EB%85%84%EB%8F%84-%ED%95%9C%EA%B5%AD%ED%83%9C%EC%96%91%EC%97%90%EB%84%88%EC%A7%80%ED%95%99%ED%9A%8C-%EC%B6%94%EA%B3%84%ED%95%99%EC%88%A0%EB%B0%9C%ED%91%9C%EB%8C%80%ED%9A%8C-%EC%9A%B0%EC%88%98/</loc>
-    <lastmod>2026-10-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://mhkpec.com/ontology/</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://mhkpec.com/%ED%95%9C%EA%B5%AD%ED%83%9C%EC%96%91%EC%97%90%EB%84%88%EC%A7%80%ED%95%99%ED%9A%8C-%EC%B6%94%EA%B3%84%ED%95%99%EC%88%A0%EB%8C%80%ED%9A%8C-%ED%83%9C%EC%96%91%EC%97%B4%EC%9C%B5%ED%95%A9%EC%84%B8%EC%85%98-%EC%96%B8%EB%A1%A0%EB%B3%B4%EB%8F%84/</loc>
-    <lastmod>2026-10-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
 </urlset>
