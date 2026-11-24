@@ -562,6 +562,21 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     </div>
   </section>
 
+  <!-- SHOWCASE: cards come from #showcaseData; status "hidden" keeps an entry out of the page -->
+  <section class="blk" id="home-showcase">
+    <div class="wrap">
+      <div class="sh rv">
+        <p class="k mono">Showcase</p>
+        <div>
+          <h2>연구를 직접 살펴보기</h2>
+          <p class="lead">연구실이 만든 설명 페이지와 웹 프로그램입니다. 장면을 돌려 보거나 시뮬레이션을 직접 실행해 볼 수 있습니다.</p>
+        </div>
+      </div>
+      <div class="fchips" id="scFilters" hidden></div>
+      <div class="areas rv" id="scCards"></div>
+    </div>
+  </section>
+
   <!-- PUBLICATIONS -->
   <section class="blk" id="home-pubs">
     <div class="wrap">
@@ -1121,6 +1136,28 @@ chs.forEach(c=>c.addEventListener('click',()=>{v.currentTime=+c.dataset.s;v.play
 btn.addEventListener('click',()=>{if(v.paused){v.play();userPaused=false;btn.textContent='❚❚ PAUSE';btn.setAttribute('aria-label','영상 일시정지')}else{v.pause();userPaused=true;btn.textContent='▶ PLAY';btn.setAttribute('aria-label','영상 재생')}});
 
 go(curHash()||'home',false);
+</script>
+<script type="application/json" id="showcaseData">[{"id": "5gdhc-gachon", "area": "network", "status": "live", "title": "5세대 지역냉난방 실증", "en": "5GDHC Campus Demonstration", "x": "가천대 AI관·제3학생생활관 실증 설비와 구상 열네트워크를 3D 장면으로 따라가며 5GDHC, P2H, 예측 제어를 설명합니다.", "tags": ["5GDHC", "P2H", "MPC"], "url": "/showcase/5gdhc/", "ext": false, "img": "assets/uploads/2026/11/showcase/5gdhc.webp", "d": "2026-11"}, {"id": "renergis", "area": "district", "status": "live", "title": "산업단지 RE100 RenerGIS", "en": "Industrial Complex RE100 Simulator", "x": "산업단지 건물별 PV·PVT·ST·ESS·CHP 도입을 지도 위에서 시뮬레이션하고 RE100 달성률, 탄소 감축량, 20년 NPV를 보고서로 냅니다.", "tags": ["PVT", "ESS", "RE100"], "url": "https://kier-renergis.com/how-it-works", "ext": true, "img": "assets/uploads/2026/10/industrial-complex-renergis.webp", "d": "2026-11"}, {"id": "apartment-hp", "area": "building", "status": "hidden", "title": "공동주택 공기열 히트펌프", "en": "", "x": "", "tags": ["HP", "MPC", "DRL"], "url": "", "ext": false, "img": "", "d": ""}]</script>
+<script>
+(function(){
+  const box=document.getElementById('scCards');if(!box)return;
+  const E=t=>String(t??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const SC={building:'Building scale',network:'Network scale',district:'District scale'};
+  const L=JSON.parse(document.getElementById('showcaseData').textContent).filter(c=>c.status==='live');
+  let f='all';
+  const card=c=>`<a class="area" href="${E(c.url)}"${c.ext?' target="_blank" rel="noopener"':''}>
+    <figure>${c.img?`<img src="${E(c.img)}" alt="${E(c.title)}" loading="lazy">`:''}</figure>
+    <div class="bd"><p class="sc mono">${SC[c.area]||''}</p><h3>${E(c.title)}</h3>${c.en?`<p class="en">${E(c.en)}</p>`:''}<p>${E(c.x)}</p>
+    <div class="ft"><span>${(c.tags||[]).map(t=>`<span class="chip">${E(t)}</span>`).join('')}</span><span class="arrow">${c.ext?'&#8599;':'&rarr;'}</span></div></div></a>`;
+  function draw(){
+    box.innerHTML=L.filter(c=>f==='all'||c.area===f).map(card).join('');
+    const fl=document.getElementById('scFilters');
+    if(L.length>6){fl.hidden=false;
+      fl.innerHTML=[['all','전체'],['building','Building'],['network','Network'],['district','District']].map(([k,l])=>`<button class="fchip${f===k?' on':''}" data-a="${k}">${l}</button>`).join('');
+      fl.querySelectorAll('[data-a]').forEach(b=>b.onclick=()=>{f=b.dataset.a;draw()});}
+  }
+  draw();
+})();
 </script>
 </body>
 </html>

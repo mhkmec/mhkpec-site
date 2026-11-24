@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://mhkpec.com/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-24</lastmod>
   </url>
   <url>
     <loc>https://mhkpec.com/ontology/</loc>
@@ -65,5 +65,9 @@
     <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mhkpec.com/showcase/5gdhc/</loc>
+    <lastmod>2026-11-24</lastmod>
   </url>
 </urlset>

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="data:," />
+    <title>5세대 지역냉난방</title>
+    <style>@font-face{font-family:Pretendard Variable;src:url(./assets/PretendardVariable-CJuje-Rk.woff2)format("woff2-variations");font-weight:45 920;font-display:swap}:root{--card:#fffffff2;--line:#d7dade;--hover:#e6e8eb;--fg:#17191c;--mute:#4a5058;--accent:#0b6e4b;--ring:#0f8a5f;--warm:#d8742a;--cold:#2f7fc4;--font:"Pretendard Variable", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif}html,body{background:#0b0f16;margin:0}body{color:var(--fg);font:16px/1.7 var(--font);word-break:keep-all;overflow-wrap:anywhere}#scene{pointer-events:none;width:100%;height:100%;display:block;position:fixed;inset:0}a:focus-visible,button:focus-visible{outline:2px solid var(--ring);outline-offset:2px}.daynight{z-index:2;border:1px solid var(--line);background:var(--card);border-radius:6px;font-size:14px;line-height:1.45;display:inline-flex;position:fixed;top:12px;right:12px;overflow:hidden}.daynight button{font:inherit;cursor:pointer;min-height:32px;color:var(--mute);background:0 0;border:0;padding:5px 12px;transition:background .14s,color .14s}.daynight button+button{border-left:1px solid var(--line)}.daynight button:hover{background:var(--hover)}.daynight button[aria-pressed=true]{background:var(--hover);color:var(--fg);box-shadow:inset 0 -2px 0 var(--ring)}.daynight button:focus-visible{outline-offset:-3px}main{z-index:1;position:relative}.hero{box-sizing:border-box;color:#fff;align-items:center;min-height:100vh;padding:72px max(24px,6vw);display:flex;position:relative}.hero:before{content:"";z-index:-1;background:linear-gradient(90deg,#0b0f16d1 0,#0b0f16b3 520px,#0b0f1600 900px);position:absolute;inset:0}.hero h1{letter-spacing:-.02em;margin:0 0 20px;font-size:clamp(40px,6vw,76px);font-weight:800;line-height:1.1}.hero p{color:#e8eaed;max-width:26em;margin:0;font-size:18px}.hero .down{color:#c3c8cf;margin-top:28px;font-size:15px}.ch.scrub{align-items:flex-start;min-height:260vh}.ch.scrub .card{position:sticky;top:14vh}.dayline{margin-top:18px}.dayline .track{background:var(--line);border-radius:3px;height:6px;overflow:hidden}.dayline i{background:linear-gradient(90deg,#f2b33d,#e0703a 55%,#3b4f8a);width:0;height:100%;display:block}.dayline .ends{color:var(--mute);justify-content:space-between;margin-top:6px;font-size:13px;display:flex}.ch{box-sizing:border-box;align-items:center;min-height:130vh;padding:10vh max(24px,6vw);display:flex}.card{box-sizing:border-box;border:1px solid var(--line);background:var(--card);border-radius:8px;width:min(460px,100%);padding:28px 30px 26px;box-shadow:0 2px 14px #00000047}.card h2{letter-spacing:-.01em;margin:0 0 14px;font-size:26px;line-height:1.3}.card .no{color:var(--accent);letter-spacing:.04em;margin-bottom:6px;font-size:15px;font-weight:700;display:block}.card .claim{margin:0 0 12px;font-size:18px;font-weight:650;line-height:1.55}.card p{margin:0 0 14px}.card ul{border-top:1px solid var(--line);color:var(--mute);margin:0;padding:14px 0 0 1.1em}.card li+li{margin-top:6px}.card .sw{vertical-align:middle;border-radius:2px;width:16px;height:4px;margin-right:6px;display:inline-block}.sw.warm{background:var(--warm)}.sw.cold{background:var(--cold)}.card .note{color:var(--mute);margin:14px 0 0;font-size:14px}.go{margin-top:18px}.go button,.back{font:inherit;color:var(--accent);border:1px solid var(--line);cursor:pointer;background:#fff;border-radius:6px;min-height:44px;padding:10px 16px;font-weight:700}.go button{text-align:left;width:100%}.go button:hover,.back:hover{background:var(--hover)}.back{z-index:2;min-height:34px;padding:5px 14px;font-size:14px;position:fixed;top:12px;left:12px}html.exploring{overflow:hidden}.exploring #scene{pointer-events:auto;cursor:grab}.exploring #scene:active{cursor:grabbing}.exploring main,.exploring .labels{visibility:hidden}.labels{pointer-events:none;z-index:0;position:fixed;inset:0;overflow:hidden}.lb{border:1px solid var(--line);background:var(--card);color:var(--fg);white-space:nowrap;visibility:hidden;opacity:0;border-radius:6px;padding:4px 10px;font-size:14px;font-weight:600;line-height:1.4;transition:opacity .35s,visibility .35s;position:absolute;top:0;left:0;box-shadow:0 1px 5px #0000004d}.lb:after{content:"";background:#ffffffe6;width:2px;height:18px;margin-left:-1px;position:absolute;top:100%;left:50%}.lb.concept{border:1px dashed #5b616a}.lb.on{visibility:visible;opacity:1}.osm-attr{z-index:2;font:11px/1.4 var(--font);color:#ffffffd9;background:#0a0e148c;border-radius:3px;padding:2px 6px;position:fixed;bottom:6px;right:8px}.osm-attr a{color:inherit}@media (max-width:720px){.hero{align-items:flex-end;padding:72px 16px 48px}.hero:before{background:linear-gradient(#0b0f1626 0,#0b0f16cc 45%,#0b0f16e0 100%)}.hero p{font-size:17px}.ch{align-items:flex-end;min-height:120vh;padding:50vh 16px 32px}.card{padding:22px 20px}.card h2{font-size:23px}}@media (prefers-reduced-motion:reduce){.lb,.daynight button{transition:none}}</style>
+    <script type="module" crossorigin src="./assets/home-XSYdU8XN.js"></script>
+  </head>
+  <body>
+    <canvas id="scene" aria-label="가천대 실증 두 건물과 구상 열네트워크로 이어진 이웃 건물의 3D 장면"></canvas>
+    <div class="labels" data-labels aria-hidden="true"></div>
+    <div class="daynight" data-daynight role="group" aria-label="장면 시간대">
+      <button type="button" value="day" aria-pressed="false">낮</button><button type="button" value="night" aria-pressed="false">밤</button>
+    </div>
+    <main>
+      <header class="hero" data-ch="hero">
+        <div>
+          <h1>5세대 지역냉난방</h1>
+          <p>건물끼리 열을 주고받는 저온 열네트워크를 가천대 AI관과 제3학생생활관의 실증 설비로 설명합니다.</p>
+          <p class="down">아래로 내리면 장면이 각 설명이 가리키는 곳으로 움직입니다.</p>
+        </div>
+      </header>
+
+      <section class="ch" data-ch="c1" aria-labelledby="c1">
+        <article class="card">
+          <h2 id="c1"><span class="no">01</span>5세대 지역냉난방이란</h2>
+          <p class="claim">망은 주변 온도에 가깝게 두고, 필요한 온도는 건물에서 만듭니다.</p>
+          <p>5세대 지역냉난방(fifth-generation district heating and cooling, 5GDHC)은 땅속 관로에 주변 온도와 비슷한 물을 돌립니다. 건물마다 있는 히트펌프(heat pump)가 이 물에서 열을 빼거나 넣어 난방, 냉방, 급탕에 맞는 온도를 만듭니다.</p>
+          <ul>
+            <li>1~3세대는 중앙 열원이 고온수나 증기를 만들어 건물로 한 방향으로 보냅니다. 4세대는 공급 온도를 낮춰 열손실을 줄였습니다.</li>
+            <li>5세대는 망의 물을 주변 온도 가까이 두어, 관로에서 새어 나가는 열이 더 줄어듭니다.</li>
+            <li>같은 망 하나로 난방과 냉방을 함께 다룹니다.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="ch" data-ch="c2" aria-labelledby="c2">
+        <article class="card">
+          <h2 id="c2"><span class="no">02</span>양방향 열 교환</h2>
+          <p class="claim">한 건물이 버린 열이 다른 건물의 난방이 됩니다.</p>
+          <p>냉방하는 건물은 실내에서 뺀 열을 망으로 내보내고, 난방하는 건물은 그 열을 망에서 가져갑니다. 망은 열을 만드는 곳이 아니라 건물 사이에서 열을 나르는 공용 통로입니다.</p>
+          <ul>
+            <li><span class="sw warm" aria-hidden="true"></span>따뜻한 관과 <span class="sw cold" aria-hidden="true"></span>차가운 관이 한 쌍으로 다닙니다.</li>
+            <li>어느 건물이 가져가고 어느 건물이 내보내는지는 계절과 건물 용도에 따라 바뀝니다.</li>
+          </ul>
+          <p class="note">장면에서 이웃 건물을 잇는 관로와 역할은 설명을 위한 구상이며 실제 설비가 아닙니다.</p>
+        </article>
+      </section>
+
+      <section class="ch" data-ch="c3" aria-labelledby="c3">
+        <article class="card">
+          <h2 id="c3"><span class="no">03</span>재생에너지 활용과 섹터 커플링</h2>
+          <p class="claim">남는 재생전력을 열로 바꿔 저장하면 전력과 열이 하나로 묶입니다.</p>
+          <p>P2X(Power-to-X)는 전력을 다른 형태의 에너지로 바꾸는 방법을 묶어 부르는 말입니다. 그중 P2H(Power-to-Heat)는 전력을 열로 바꾸며, 여기서는 히트펌프가 그 일을 합니다. 태양광 전력이 남는 시간에 히트펌프를 돌려 만든 열을 망과 축열조(thermal energy storage, TES)에 담아 둡니다.</p>
+          <ul>
+            <li>전력 부문과 열 부문을 이렇게 잇는 것을 섹터 커플링(sector coupling)이라고 합니다.</li>
+            <li>망의 물이 주변 온도에 가까워 히트펌프가 적은 전력으로 열을 옮깁니다.</li>
+            <li>그래서 저온 망은 P2H를 받아들이기에 알맞은 기반시설입니다.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="ch" data-ch="c4" aria-labelledby="c4">
+        <article class="card">
+          <h2 id="c4"><span class="no">04</span>가천대 실증 설비</h2>
+          <p class="claim">두 건물이 관로로 이어져 열을 나눠 씁니다.</p>
+          <p>실증 설비는 AI관과 제3학생생활관, 그리고 두 건물을 잇는 관로로 이루어집니다. 히트펌프와 축열조는 에너지 허브(기계실)에 모여 있습니다. 연구실의 디지털 트윈(실제 설비를 본뜬 가상 모델)은 아래 설비를 다룹니다.</p>
+          <ul>
+            <li>수열 히트펌프(water-to-water heat pump): 망의 물에서 열을 옮겨 구역별 난방, 냉방, 급탕을 맡습니다.</li>
+            <li>공기열 히트펌프(air-source heat pump): 바깥 공기에서 열을 얻는 보조 열원입니다.</li>
+            <li>축열조와 판형 열교환기(heat exchanger): 열을 담아 두었다가 열교환기를 거쳐 망으로 보냅니다.</li>
+            <li>태양광 발전(photovoltaic, PV): 운전 계획에 들어가는 전력원입니다.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="ch scrub" data-ch="c5" aria-labelledby="c5">
+        <article class="card">
+          <h2 id="c5"><span class="no">05</span>왜 예측 제어가 필요한가</h2>
+          <p class="claim">지금 필요한 만큼이 아니라, 앞을 보고 미리 축열해야 합니다.</p>
+          <p>전기요금은 시간대마다 다르고, 태양광 발전은 날씨에 따라 오르내리며, 축열조에 담을 수 있는 열에는 한계가 있습니다. 지금 필요한 만큼만 운전하면 비싼 시간에 전기를 쓰거나 남는 태양광을 놓칩니다. 그래서 앞으로의 요금, 날씨, 부하를 보고 언제 축열할지 미리 정합니다.</p>
+          <ul>
+            <li>혼합정수선형계획(mixed-integer linear programming, MILP)으로 설비를 켜고 끌 시각과 운전량을 한꺼번에 정하는 운전 계획을 세웁니다.</li>
+            <li>모델 예측 제어(model predictive control, MPC)는 새 예측이 들어올 때마다 계획을 다시 세우고, 그중 가장 가까운 결정만 실행합니다.</li>
+            <li>예측이 빗나가도 다음 재계획이 그 차이를 따라잡습니다.</li>
+          </ul>
+          <div class="dayline" data-dayline aria-hidden="true">
+            <div class="track"><i></i></div>
+            <div class="ends"><span>아침</span><span>해 질 녘</span><span>밤</span></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="ch" data-ch="c6" aria-labelledby="c6">
+        <article class="card">
+          <h2 id="c6"><span class="no">06</span>직접 둘러보기</h2>
+          <p>버튼을 누르면 장면을 끌어서 돌리고 휠이나 두 손가락으로 확대해 볼 수 있습니다.</p>
+          <div class="go"><button type="button" data-explore>둘러보기</button></div>
+        </article>
+      </section>
+    </main>
+    <button type="button" class="back" data-back aria-keyshortcuts="Escape" hidden>돌아가기</button>
+    <div class="osm-attr"><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap contributors</a></div>
+  </body>
+</html>
