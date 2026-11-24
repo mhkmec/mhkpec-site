@@ -1,7 +1,10 @@
 # District scene assets (U12)
 
+> 이 소개 페이지 배포본에서는 `textures/*.jpg` 6개를 같은 해상도로 JPG 품질 85로 다시 저장했습니다. 아래 표의 크기와 해시는 내려받은 원본 기준입니다.
+
+
 Third-party files used by `district.html`. All are CC0 1.0 (public domain dedication, no attribution required).
-Files are byte-identical to the download (not re-encoded). Fetched 2026-11-20. Total 7,856,016 bytes.
+Files are byte-identical to the download, except the six JPGs re-encoded for this page (note above). Fetched 2026-11-20. Total 7,856,016 bytes.
 
 | File | Kind | Source | Author | Licence | Bytes | sha256 |
 |---|---|---|---|---|---|---|
